@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Números aleatorios</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo1.css">
+
+</head>
+<body>
+    
+    <h1>Bienvenido al programa números aleatorios</h1>
+    <h2>Número mágico: </h2><span id="numero">------</span>
+    <button onclick="cambio(100)">Número aleatorio</button> 
+    <p><strong>Pincha en el boton y ocurrirá algo mágico</strong></p>
+    <span>Números comprendidos entre 0 y 100</span>
+
+
+    <script>
+        let elementoNumero = document.getElementById("numero")
+
+        function cambio(maximo){
+            let resultado = Math.floor(Math.random()*maximo)
+            elementoNumero.textContent = resultado
+        }
+
+
+    </script>
+
+
+
+
+
+</body>
+</html>

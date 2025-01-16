@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo1.css">
+</head>
+<body>
+
+    <p>Ingresa tu nombre, por favor</p>
+    <input type="text" id="nombre">
+    <p>Ingresa el tiempo que quieres que tarde en aparecer:</p>
+    <input type="number" name="" id="cuentaAtras">
+    <button onclick="tiempo()">Añadir</button>
+    <h1 style="color: blue;" id="texto">Datos desconocidos</h1>
+
+
+    <script>
+        let contrarreloj = document.getElementById("cuentaAtras")
+        function tiempo(){
+            setTimeout(mensaje, 1000*contrarreloj.value)
+        }
+
+        function mensaje() {
+            let usuario = document.getElementById("nombre")
+            let cambio = document.getElementById("texto")
+            alert("Tu nombre es: " +usuario.value)
+            let parrafo = "Tu nombre es: " +usuario.value+ " y has puesto una cuenta atrás de " +contrarreloj.value+ " segundos"
+            cambio.textContent = parrafo
+            cambio.style.color = "green"
+
+            
+        }
+
+
+    </script>
+
+
+
+
+
+
+
+    
+</body>
+</html>

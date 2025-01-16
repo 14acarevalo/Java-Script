@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function Libro (nombre, autor, paginas){
+            this.nombre = nombre
+            this.autor = autor
+            this.paginas = paginas
+        }
+
+
+
+        Libro.prototype.fechaPublicacion = function() {
+            return "Año de publicacion 2025"
+        }
+
+        Libro.prototype.ediccion = 1995 //Esto solo lo usaremos para aquellas ediciones constantes, fijas
+
+        let libro = new Libro("Estudios", "Alberto", 567 )
+        alert(libro.autor + " " + libro.nombre + " "+libro.paginas + " " +libro.fechaPublicacion())
+
+        let libro2 = new Libro("Isabel" , "Fortunata y Jacinta" , 678)
+        alert(libro2.nombre )
+        alert(libro2.autor )
+        alert(libro2.paginas + " " +libro2.fechaPublicacion())
+        
+      
+        
+
+    </script>
+</body>
+</html>

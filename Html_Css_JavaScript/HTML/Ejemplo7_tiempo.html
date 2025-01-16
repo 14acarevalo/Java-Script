@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo2.css">
+</head>
+<body>
+    <p>Ingresa tu nombre</p>
+    <input type="text" name="" id="nombre">
+    <button onclick="nombreAñadido()">Añadir</button>
+
+
+    <script>
+        function nombreAñadido () {
+            setTimeout(mensaje, 1000*5)
+        }
+
+
+        function mensaje () {
+            let nombre = document.getElementById("nombre").value
+            alert("Welcome " +nombre+ " !!!!!!")
+        }
+
+    </script>
+    
+</body>
+</html>

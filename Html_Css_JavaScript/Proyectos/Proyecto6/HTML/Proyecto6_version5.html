@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="crearTiendas('itemsTiendas', 0, 8)">
+    <p>Ventas del Comercio</p>
+
+    <div id="itemsTiendas">
+    </div>
+
+    <p id="parrafoSalida">
+        -----
+    </p>
+
+    <p>
+        <button onclick="calcular()">Calcular</button>
+    </p>
+
+    <script>
+        function crearTiendas(contenedorId, min, cantidadTiendas) {
+            // Encontrar contenedor por su ID
+            let elementoContenedor = document.getElementById(contenedorId);
+
+            // Nos ayudará para lograr crear tantas tiendas como se pidan
+            for (let conteoTiendas = 1; conteoTiendas <= cantidadTiendas; conteoTiendas++) {
+                // Crear el texto de label para poder llamar a la función
+                let textoEtiqueta = "Tienda " + conteoTiendas +" : ";
+
+                // Crear tiendas con crearParrafoTienda
+                let parrafoTienda = crearParrafoTienda(textoEtiqueta, min);
+
+                // Agregar el parrafo al contenedor
+                elementoContenedor.appendChild(parrafoTienda);
+            }
+        }
+
+        function crearParrafoTienda(textoLabel, valorMin) {
+            // Crear la etiqueta <p>, etiquetas de párrafo
+            let elementoParrafo = document.createElement("p");
+
+            // Crear la etiqueta <label>
+            let elementoEtiqueta = document.createElement("label");
+
+            // Conectar con el input
+            elementoEtiqueta.setAttribute("for", textoLabel);
+            elementoEtiqueta.textContent = textoLabel;
+
+            // Crear el input
+            let elementoInput = document.createElement("input");
+
+            // Establecer los atributos
+            elementoInput.setAttribute("type", "number");
+            elementoInput.setAttribute("id", textoLabel);
+            elementoInput.setAttribute("min", valorMin);
+            elementoInput.setAttribute("value", 0);
+
+            // Agregar label e input al párrafo
+            elementoParrafo.appendChild(elementoEtiqueta);
+            elementoParrafo.appendChild(elementoInput);
+
+            // Devolver el párrafo completo
+            return elementoParrafo;
+        }
+
+        function extraerNumerosDesdeElemento(elemento){
+            let miTexto = elemento.value 
+            let miNumero = Number(miTexto)
+
+            return miNumero >= 0 ? miNumero : 0 // Esto nos va ayudar en caso de que el número sea negativo, para darnos un 0
+        }
+        
+        function calcular(){
+            let ventas = []
+            let posicionVentas = 0
+
+            let elementosVentas = document.getElementById("itemsTiendas")
+
+            for (let item of elementosVentas.children) {
+                let valorVenta = extraerNumerosDesdeElemento(item.children[1])
+                ventas[posicionVentas] = valorVenta
+                posicionVentas = posicionVentas + 1
+            }
+
+           
+
+            let totalVentas = sumarTotal(ventas)
+            let ventaMayor = mayorVenta(ventas)
+            let ventaMenor = menorVenta(ventas)
+
+            let mensajeSalida = "Total de ventas: " +totalVentas + 
+                                " / Venta mayor: " +ventaMayor +
+                                " / Venta menor:"    +ventaMenor
+            let elementoSalida = document.getElementById("parrafoSalida")
+
+            elementoSalida.textContent = mensajeSalida
+
+        }
+
+
+        function sumarTotal(array){
+            let total = 0
+
+            for (let venta of array){
+                total = total + venta
+            }
+
+            return total
+        }
+
+        function mayorVenta(array){
+            let mayor = array[0]
+
+            for (let venta of array){
+                if (venta > mayor){
+                    mayor = venta
+                }
+            }
+            return mayor
+        }
+
+        function menorVenta(array) {
+            let menor = array[0]
+
+            for (let venta of array){
+                if (venta < menor){
+                    menor = venta
+                }
+            }
+            return menor
+
+        }
+    </script>
+    
+</body>
+</html>

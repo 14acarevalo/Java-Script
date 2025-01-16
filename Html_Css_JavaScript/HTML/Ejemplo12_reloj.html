@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="reloj()">
+    <h1 id="textoReloj"> 00:00:00</h1>
+    <button onclick="presionar">Presionar</button>
+
+    <script>
+        let elementoTextoReloj = document.getElementById("textoReloj")
+        let elementoPresionar = document.getElementById("presionar")
+
+        function reloj(){
+            setInterval(ticTac, 1000)
+        }
+
+        function ticTac(){
+            let reloj = new Date()
+            let hora = String(reloj.getHours()).padStart(2, "0")
+            let minutos = String(reloj.getMinutes()).padStart(2, "0")
+            let segundos = String(reloj.getSeconds()).padStart(2, "0")
+            let horaActual = hora+ ":" +minutos+ ":" +segundos
+            elementoTextoReloj.textContent = horaActual
+        }
+    </script>
+
+</body>
+</html>

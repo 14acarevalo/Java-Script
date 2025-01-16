@@ -1,0 +1,102 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento For</title>
+    <link rel="stylesheet" href="">
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #74b9ff, #a29bfe);
+            color: #2d3436;
+        }
+
+        h1 {
+            color: #dfe6e9;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px #0984e3;
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin: 10px 0;
+        }
+
+        input[type="number"] {
+            padding: 10px;
+            font-size: 1rem;
+            border: 2px solid #6c5ce7;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            background-color: #00cec9;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0984e3;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            background-color: #81ecec;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            color: #2d3436;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabla de multiplicar</h1>
+    <p>¿Qué tabla deseas calcular usuario?</p>
+    <p>Introduce el número</p>
+    <input type="number" id="numero" min="1">
+    <button onclick="calcular()">Calcula</button>
+    <ul id="listaTabla"></ul>
+    <button onclick="location.reload()">Reiniciar</button>
+
+    <script>
+        function calcular() {
+            let elementoTabla = document.getElementById("listaTabla");
+            let elementoNumero = document.getElementById("numero").value;
+            let numero = Number(elementoNumero);
+
+            elementoTabla.innerHTML = ""; // Limpia la lista antes de agregar nuevos elementos
+
+            for (x = 0; x <= 10; x++) {
+                let numeroResultado = numero * x;
+                let textoResultado = numero + " multiplicado por " + x + " es igual a " + numeroResultado;
+
+                // Crear un elemento de la lista desordenada
+                let itemLista = document.createElement("li");
+                itemLista.innerText = textoResultado;
+                elementoTabla.appendChild(itemLista);
+            }
+        }
+    </script>
+</body>
+</html>

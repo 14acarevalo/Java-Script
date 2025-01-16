@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo1.css">
+</head>
+<body onload="comenzarReloj()">
+    <button onclick="comenzarTiempo()">Alarma</button>
+    <h1 id="textoAlarma">00 : 00 : 00</h1>
+
+    <script>
+        function mensaje() {
+            alert("La alarma ha finalizado");
+        }
+
+        function comenzarTiempo() { // Esta es la que vamos a enlazar con el onclick
+            setTimeout(mensaje, 1000 * 3);
+        }
+
+        function comenzarReloj() {
+            setInterval(ticTac, 1000); // Actualiza el reloj cada segundo
+        }
+
+        function ticTac() {
+            // Obtiene la hora actual
+            let tiempoActual = new Date();
+            let hora = tiempoActual.getHours(); // Corrige: agregar paréntesis
+            let minutos = tiempoActual.getMinutes(); // Corrige: agregar paréntesis
+            let segundos = String(tiempoActual.getSeconds()).padStart(2, "0"); // Corrige: agregar paréntesis
+
+            // Formatear los valores para que siempre tengan 2 dígitos
+            hora = hora.toString().padStart(2, "0");
+            minutos = minutos.toString().padStart(2, "0");
+            segundos = segundos.toString().padStart(2, "0");
+
+
+            // Actualizar el contenido del elemento HTML
+            let reloj = `${hora} : ${minutos} : ${segundos}`;
+            document.getElementById("textoAlarma").textContent = reloj; // Actualiza el h1
+        }
+    </script>
+</body>
+</html>

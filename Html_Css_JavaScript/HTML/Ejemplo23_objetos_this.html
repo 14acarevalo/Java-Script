@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+
+
+    <script>
+        let persona = {
+            nombre: "Alberto",
+            edad: 30,
+            profesion: "Coordinador Deportivo",
+            estudiante: true,
+            aficiones : {
+                deportes: "Padel",
+                lenguaje_programacion: "java script",
+                libros: "La bestia",
+                comida: "pasta"
+            },
+            trabajar(){
+                console.log("Alberto trabaja y estudia a la vez, se esfuerza mucho.")
+            
+            },
+
+            cumplirAños(){
+                this.edad = this.edad +1
+            },
+
+            saludar(){
+                //Si nosotros trabajamos con this, siempre nos referiremos al elemento que forme parte de este objeto
+                console.log("Hola, me llamo" +this.nombre) //No pasaria nada si ponemos persona.nombre, pero claro, cuando duplico... tendré que estar pendiente de cambiarlo
+            }
+        }
+
+        let persona2 = {
+            nombre: "Pablo",
+            edad: 22,
+            profesion: "Ingeniero informatico",
+            estudiante: true,
+            aficiones : {
+                deportes: "Baloncesto",
+                lenguaje_programacion: "java script",
+                libros: "La bestia",
+                comida: "pasta"
+            },
+            trabajar(){
+                console.log(this.nombre+ " trabaja y estudia a la vez, se esfuerza mucho.")
+            
+            },
+
+            cumplirAños(){
+                this.edad = this.edad +1
+            },
+
+            saludar(){
+                //Si nosotros trabajamos con this, siempre nos referiremos al elemento que forme parte de este objeto
+                console.log("Hola, me llamo" +this.nombre) //No pasaria nada si ponemos persona.nombre, pero claro, cuando duplico... tendré que estar pendiente de cambiarlo
+            }
+        }
+
+
+        console.log(persona.aficiones)
+        console.log(persona.edad)
+        console.log(persona.nombre)
+        persona.trabajar()
+
+        persona.edad = 20
+        console.log(persona.edad)
+
+        persona.aficiones.comida = "pescado"
+        console.log(persona.aficiones)
+
+        persona.nombre = "Pepe"
+        console.log(persona.nombre)
+        persona.cumplirAños()
+        console.log(persona.edad)
+        persona.cumplirAños()
+        persona.cumplirAños()
+        persona.cumplirAños()
+        persona.cumplirAños()
+        persona.cumplirAños()
+        console.log(persona.edad)
+
+        persona["dni"] = "049583234Z"
+
+        console.log(persona) // para añadir un nuevo elemento
+
+        console.log(persona2)
+
+
+    </script>
+</body>
+</html>

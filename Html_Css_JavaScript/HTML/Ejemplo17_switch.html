@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Switch</title>
+</head>
+<body>
+
+    <p>Valor de los productos</p>
+    <ol>
+        <li id="botas">Botas</li>
+        <li id="abrigo">Abrigo</li>
+        <li id="guantes">Guantes</li>
+        <li id="sudadera">Sudadera</li>
+    </ol>
+    <input type="number" id="numeroRopa" min="1" max="4">
+    <button onclick="seleccionar()">Selecciona</button>
+    <h1 id="valor">-----</h1>
+    <button onclick="location.reload()">Reiniciar</button>
+
+
+    <script>
+        
+
+        function seleccionar(){
+            let elementoBotas = document.getElementById("botas")
+            let elementoAbrigo = document.getElementById("abrigo")
+            let elementoGuantes = document.getElementById("guantes")
+            let elementoSudadera = document.getElementById("sudadera")
+            let elementoValor = document.getElementById("valor")
+            let elementoRopa = document.getElementById("numeroRopa")
+            let ropa = elementoRopa.value
+
+            switch(ropa) {
+                case "1":
+                    elementoValor.textContent = 40
+                    break
+                case "2":
+                    elementoValor.textContent = "120"
+                    break
+                case "3":
+                    elementoValor.textContent = "20"
+                    break
+                case "4":
+                    elementoValor.textContent = "30"
+                    break
+            }
+        }
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <h1>Tienda de vehiculos y sus datos</h1>
+    </div>
+
+    <div>
+        <p>Bienvenidos a nuestro catologo de información:</p>
+        <button onclick="mostrar()">Pinchame a mi!!!</button>
+        <p id="informacion"></p>
+    </div>
+
+    <script>
+        function Automovil(marca, modelo, color, anio, titular){
+            this.marca = marca;
+            this.modelo = modelo;
+            this.color = color;
+            this.anio = anio;
+            this.titular = titular;
+        }
+
+        let auto1 = new Automovil("Opel", "Vectra", "verde", 1997, "Alberto");
+        let auto2 = new Automovil ("Hyundai", "Tucson", "blanco", 2019, "Fernando ");
+        let auto3 = new Automovil("Citroen", "Berlingo", "azul", 2007, "Pablo");
+
+        Automovil.prototype.venderAutomovil = function (nuevoTitular) {
+            this.titular = nuevoTitular;
+        }
+
+        let auto4 = new Automovil("Ford", "Ranger", "gris", 2009, "Fernando");
+        auto4.venderAutomovil("Isabel");
+        alert("El vehiculo es un " + auto4.marca + " concretamente, un " + auto4.modelo + " de color " + auto4.color + " y su nueva dueña es " + auto4.titular);
+
+        let concesionario = [auto1, auto2, auto3, auto4];
+
+        Automovil.prototype.verAuto = function () {
+            let infoAutos = "";
+            for (let x = 0; x < concesionario.length; x++) {
+                let coche = concesionario[x];
+                infoAutos += `El dueño del vehículo es: ${coche.titular}, el modelo es: ${coche.modelo}, el coche es un: ${coche.marca}, y el año es: ${coche.anio}<br>`;
+            }
+            return infoAutos;
+        }
+
+        function mostrar() {
+            let elementoInformacion = document.getElementById("informacion");
+            let info = auto1.verAuto();  // Obtienes la información de todos los autos
+            elementoInformacion.innerHTML = info;  // Asignas la información al párrafo
+        }
+
+        Automovil.prototype.encender = function () {
+            alert("Está encendido");
+        }
+    </script>
+</body>
+</html>

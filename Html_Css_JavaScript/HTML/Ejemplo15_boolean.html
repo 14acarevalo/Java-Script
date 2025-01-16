@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="" defer></script>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <p>Ingresa tu edad:</p>
+    <input type="number" id="edad">
+    <button onclick="comprobar()">Enviar</button>
+    <h2>¿Puede beber alcohol?</h2>
+    <h4 id="respuesta1">--------</h4>
+    <h2>¿Puede conducir?</h2>
+    <h4 id="respuesta2">--------</h4>
+    <h2>¿Puede votar?</h2>
+    <h4 id="respuesta3">--------</h4>
+    <button onclick="location.reload()">Reiniciar</button>
+
+    <script>
+        function comprobar() {
+            let elementoRespuesta1 = document.getElementById("respuesta1");
+            let elementoRespuesta2 = document.getElementById("respuesta2");
+            let elementoRespuesta3 = document.getElementById("respuesta3");
+            let elementoEdad = document.getElementById("edad");
+            let edad = elementoEdad.value;  // Obtener la edad como número
+
+            let puedeBeber = edad >= 18;
+            elementoRespuesta1.textContent = puedeBeber  // Muestra "Sí" o "No"
+
+            let puedeConducir = edad >= 18;
+            elementoRespuesta2.textContent = puedeConducir 
+
+            let puedeVotar = edad >= 18;
+            elementoRespuesta3.textContent = puedeVotar
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+
+        function Pelicula (titulo, director, duracion){
+            this.titulo = titulo
+            this.director=director
+            this.duracion = duracion
+        }
+
+        
+        Pelicula.prototype.esLarga = function (){
+            if (this.duracion > 1) {
+                return "es muy larga!!!"
+            } else {
+                return "no es larga!!!"
+            }
+        }
+
+        let pelicula1 = new Pelicula("J.K" , "Alberto", 2)
+        alert("La pelicula, de nombre:  "+pelicula1.titulo+ " del director " +pelicula1.director+ " tiene una duración de " +pelicula1.duracion + " horas, por eso, esta pelicula "+ pelicula1.esLarga())
+
+    </script>
+    
+</body>
+</html>

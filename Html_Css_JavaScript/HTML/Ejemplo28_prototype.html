@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+
+    <script>
+        function Producto(nombre, categoria, precio){
+            this.nombre = nombre
+            this.categoria = categoria
+            this.precio = precio
+        }
+
+        
+        Producto.prototype.esCaro = function(){
+            if (this.precio > 30){
+                return "precio excesivamente caro"
+            } else {
+                return "esta bien de precio"
+            }
+        }
+
+        let producto = new Producto ("Manzana", "Fruta", 2)
+
+        alert(" He ido al super y he comprado una " +producto.nombre+ " porque necesita una pieza de " +producto.categoria+ " y me ha costado " +producto.precio+ " €")
+    
+
+        let producto1 = new Producto ("Apple", "movil", 689)
+
+        alert(" He ido al mediemarkt y he comprado una " +producto1.nombre+ " porque necesita cambiar de " +producto1.categoria+ " y me ha costado " +producto1.precio+ " €, por lo tanto, el producto es " +producto1.esCaro())
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo1.css">
+</head>
+<body>
+    <input type="number" id="tiempoEscogido">
+    <button onclick="comenzarTiempo()">Alarma</button>
+    <h1 id="cuentaAtras" style="color:red">Cuenta atrás iniciada con tu click</h1>
+
+
+
+    <script>
+        function mensaje(){
+            alert("La alarma ha finalizado")
+            let informacion = document.getElementById("cuentaAtras")
+            let message = "Cuenta atrás concluida"
+            informacion.textContent = message
+            informacion.style.color = "green"
+        }
+
+        let duracion = document.getElementById("tiempoEscogido")
+
+        function comenzarTiempo(){ //Esta es la que vamos a enlazar con el onclick
+            setTimeout(mensaje, 1000*duracion.value)
+
+        }
+    </script>
+</body>
+</html>

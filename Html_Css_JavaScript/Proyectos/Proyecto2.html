@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Proyectos/Proyecto1.css">
+</head>
+<body onload="cuentaAtras()">
+    <h1 style="color:blue">Cultura general - ¿Cuánto sabes?</h1>
+
+    <p>¿Cuál es la capital de España?</p>
+    <input type="text" id="capital"><br>
+    <p>¿En qué año se descubrió América?</p>
+    <input type="text" id="america"><br>
+    <p>¿Cuántas comunidades autónomas tiene España?</p>
+    <input type="text" id="comunidades"><br>
+    <p>¿Cuánto es: 5+7*2?</p>
+    <input type="text" id="resultado"><br>
+    <p>¿Quién es el presidente de España?</p>
+    <input type="text" id="presidente"><br>
+    <br>
+
+    <button onclick="añadirDatos()" style="color:brown">Finalizar</button>
+    <button onclick="location.reload()" style="color: cadetblue;">Reiniciar</button>
+    <h1 id="contador">30</h1>
+
+    <!-- Elemento de audio -->
+    <audio id="audio" src="../Musica/gameover.mp3" preload="auto"></audio>
+
+    <script>
+        let elementoCapital = document.getElementById("capital");
+        let elementoAmerica = document.getElementById("america");
+        let elementoComunidades = document.getElementById("comunidades");
+        let elementoResultado = document.getElementById("resultado");
+        let elementoPresidente = document.getElementById("presidente");
+
+        let regresion = document.getElementById("contador"); // Asignar el elemento del contador
+        let tiempoRestante = 30;
+        let intervalo; // Variable para almacenar el intervalo
+
+        function añadirDatos() {
+            alert("COMPLETADO!!!!!!!! ");
+            alert("Respondiste: ")
+            alert("Capital de España " + elementoCapital.value + 
+                " - Año de descubrimiento de América: " + elementoAmerica.value + 
+                " - Total de comunidades de España: " + elementoComunidades.value + 
+                " - Operación matemática: " + elementoResultado.value + 
+                " - Presidente: " + elementoPresidente.value);
+        }
+
+        function cuentaAtras() {
+            intervalo = setInterval(reloj, 1000); // Inicia el intervalo
+        }
+
+        function reloj() {
+            if (tiempoRestante > 0) {
+                tiempoRestante--; // Reduce el contador lógico
+                regresion.textContent = tiempoRestante; // Actualiza el contador en pantalla
+                if (tiempoRestante <= 10) {
+                    regresion.style.color = "red";
+                }
+            } else {
+                clearInterval(intervalo); // Detiene el intervalo
+                alert("Cuenta atrás agotada");
+                alert("YOU LOSE!!!");
+
+                // Reproducir el sonido cuando el contador llega a 0
+                reproducirSonido();
+            }
+        }
+
+        // Función para reproducir el sonido
+        function reproducirSonido() {
+            let audio = document.getElementById("audio");
+            audio.play().catch(error => {
+                console.log("Error al intentar reproducir el audio:", error);
+                alert("No se pudo reproducir el sonido. Intenta activar el sonido manualmente.");
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="" defer></script>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <p>Precio de la leche</p>
+    <input type="number" id="precio">
+    <button onclick="calcular()">Calcular</button>
+    <h1 id="valor">Valor</h1>
+    <button onclick="location.reload()">Reiniciar</button>
+
+
+
+
+    <script>
+        function calcular(){
+        let elementoPrecio = document.getElementById("precio")
+        let elementoValor = document.getElementById("valor")
+        let valor = elementoValor
+        let precio = elementoPrecio.value
+
+            if (precio <5){
+                precio = "Compra dos cartones de leche"
+                valor.textContent =precio
+            } else {
+                precio = "Compra un sólo carton"
+                valor.textContent =precio
+
+            }
+        }
+    </script>
+</body>
+</html>

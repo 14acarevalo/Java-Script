@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Proyecto12.css">
+</head>
+<body>
+    <h1>Banco de Springfield</h1>
+    <p>Springfield, IL</p>
+    <div id="info-cliente">
+        <!-- Aquí se mostrarán los datos -->
+    </div>
+
+    <script>
+        fetch('JSON/datos_cliente.json')  <!-- Ruta actualizada -->
+        .then(respuesta => respuesta.json())
+        .then(datos => {
+            console.log(datos);
+
+            let elementoInfoCliente = document.getElementById("info-cliente");
+
+            for (let x of datos){
+                elementoInfoCliente.innerHTML += `
+                <div class="cliente">
+                    <p><strong>Nombre:</strong> ${x.nombre}</p>
+                    <p><strong>Número de cuenta:</strong> ${x.nro_cuenta}</p>
+                    <p><strong>Monto:</strong> ${x.monto_usd} USD / ${x.monto_eur} EUR</p>
+                    <p><strong>CBU:</strong> ${x.cbu}</p>
+                    <p><strong>Abierta:</strong> ${x.fecha_apertura}</p>
+                </div>`;
+            }
+        })
+        .catch(error => console.error('Error al obtener los datos:', error));
+    </script>
+</body>
+</html>

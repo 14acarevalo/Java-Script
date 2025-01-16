@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/Ejemplo1.css">
+</head>
+<body>
+    <p> Ingresa tu fecha de nacimiento: </p>
+    <input type="text" id="fecha">
+    <button onclick="pinchar()">Añadir</button>
+    <h1 id="cambio">Desconocemos tu fecha de nacimiento: </h1>
+
+
+    <script>
+        function pinchar(){
+            let fecha = document.getElementById("fecha") // Como puedes observar, no se puede añadir el termino value, ya que produciria undefined
+            let change = document.getElementById("cambio")
+            let mensaje = "Tu fecha de nacimiento es: " + fecha.value
+            change.textContent = mensaje
+        }
+
+
+    </script>
+    
+</body>
+</html>

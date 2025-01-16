@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Proyectos/Proyecto1.css">
+</head>
+<body onload="cuentaAtras()">
+
+    <p>Inserta tu nombre</p>
+    <input type="text" id="nombre"><br>
+    <p>Inserta tu primer apellido</p>
+    <input type="text" id="primerApellido"><br>
+    <p>Inserta tu segundo apellido</p>
+    <input type="text" id="segundoApellido"><br>
+    <p>Inserta tu DNI</p>
+    <input type="text" id="DNI"><br>
+    <p>Inserta tu teléfono</p>
+    <input type="phone" id="telefono"><br>
+    <br>
+
+    <button onclick="añadirDatos()" style="color:brown">Finalizar</button>
+    <button onclick="location.reload()" style="color: cadetblue;">Reiniciar</button>
+    <h1 id="contador">30</h1>
+
+    <script>
+        let elementoNombre = document.getElementById("nombre");
+        let elementoPrimerApellido = document.getElementById("primerApellido");
+        let elementoSegundoApellido = document.getElementById("segundoApellido");
+        let elementoDNI = document.getElementById("DNI");
+        let elementoTelefono = document.getElementById("telefono");
+
+        let regresion = document.getElementById("contador"); // Asignar el elemento del contador
+        let tiempoRestante = 30;
+        let intervalo; // Variable para almacenar el intervalo
+
+        function añadirDatos() {
+            alert("COMPLETADO!!!!!!!! ");
+            alert("Tus datos son: Nombre: " + elementoNombre.value + 
+                " Primer apellido: " + elementoPrimerApellido.value + 
+                " Segundo apellido: " + elementoSegundoApellido.value + 
+                " DNI: " + elementoDNI.value + 
+                " Teléfono: " + elementoTelefono.value);
+        }
+
+        function cuentaAtras() {
+            intervalo = setInterval(reloj, 1000); // Inicia el intervalo
+        }
+
+        function reloj() {
+            if (tiempoRestante > 0) {
+                tiempoRestante--; // Reduce el contador lógico
+                regresion.textContent = tiempoRestante; // Actualiza el contador en pantalla
+            } else {
+                clearInterval(intervalo); // Detiene el intervalo
+                alert("Cuenta atrás agotada");
+                alert("YOU LOSE!!!");
+
+            }
+        }
+    </script>
+</body>
+</html>

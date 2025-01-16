@@ -1,0 +1,22 @@
+/* Archivo Proyecto12.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    margin: 5px 0;
+}
+
+.cliente {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="../CSS/Proyecto3.css">
+    <script src="../JavaScript/Proyecto3.js" defer></script>
+</head>
+<body>
+    <div class="calculadora">
+        <h1>Bienvenido a tu calculadora online</h1>
+        <p style="color:brown;">Introduce el primer número:</p>
+        <input type="number" id="number1">
+        <p style="color: brown;">Introduce tu segundo numero:</p>
+        <input type="number" id="number2"><br><br>
+        
+        <div class="container">
+            <button class="operation" onclick="sumar()">+</button>
+            <button class="operation" onclick="restar()">-</button>
+            <button class="operation" onclick="multiplicar()">*</button>
+            <button class="operation" onclick="dividir()">/</button><br><br>
+        </div>
+
+        <div class="container">
+            <button class="special" onclick="potencia()">Potencia</button>
+            <button class="special" onclick="raiz()">Raíz</button><br><br>
+            <button class="special" onclick="absoluto()">Absoluto</button>
+            <button class="special" onclick="random(100)">Random</button><br><br>
+        </div>
+
+        <h2>Resultado:</h2>
+        <h3 id="resultado">----</h3>
+        <div class="container">
+            <button class="special" onclick="round()">Round</button>
+            <button class="special" onclick="floor()">Floor</button>
+            <button class="special" onclick="ceil()">Ceil</button>
+        </div>
+        <br>
+        <button onclick="location.reload()">Reiniciar</button>
+    </div>
+</body>
+</html>

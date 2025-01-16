@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer></script>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <p>Ventas del Comercio</p>
+
+    <p>
+        <label for="ventasTienda1">Tienda 1</label>
+        <input type="number" name="" id="ventasTienda1" min="0">
+    </p>
+
+    <p>
+        <label for="ventasTienda2">Tienda 2</label>
+        <input type="number" name="" id="ventasTienda2" min="0">
+    </p>
+
+    <p>
+        <label for="ventasTienda3">Tienda 3</label>
+        <input type="number" name="" id="ventasTienda3" min="0">
+    </p>
+
+    <p>
+        <label for="ventasTienda4">Tienda 4</label>
+        <input type="number" name="" id="ventasTienda4" min="0">
+    </p>
+
+    <p>
+        <label for="ventasTienda5">Tienda 5</label>
+        <input type="number" name="" id="ventasTienda5" min="0">
+    </p>
+
+    <p>
+        <label for="ventasTienda6">Tienda 6</label>
+        <input type="number" name="" id="ventasTienda6" min="0">
+    </p>
+
+    <p id="parrafoSalida">
+        -----
+    </p>
+
+    <p>
+        <button onclick="calcular()">Calcular</button>
+    </p>
+
+
+    <script>
+        
+        function extraerNumerosDesdeElemento(elemento){
+            let miElemento = document.getElementById(elemento)
+            let miTexto = miElemento.value 
+            let miNumero = Number(miTexto)
+
+            return miNumero >= 0 ? miNumero : 0 // Esto nos va ayudar en caso de que el número sea negativo, para darnos un 0
+        }
+        
+        function calcular(){
+            let ventas = []
+
+            ventas[0] = extraerNumerosDesdeElemento("ventasTienda1")
+            ventas[1] = extraerNumerosDesdeElemento("ventasTienda2")
+            ventas[2] = extraerNumerosDesdeElemento("ventasTienda3")
+            ventas[3] = extraerNumerosDesdeElemento("ventasTienda4")
+            ventas[4] = extraerNumerosDesdeElemento("ventasTienda5")
+            ventas[5] = extraerNumerosDesdeElemento("ventasTienda6")
+
+            let totalVentas = sumarTotal(ventas)
+            let ventaMayor = mayorVenta(ventas)
+            let ventaMenor = menorVenta(ventas)
+
+            let mensajeSalida = "Total de ventas: " +totalVentas + 
+                                " / Venta mayor: " +ventaMayor +
+                                " / Venta menor:"    +ventaMenor
+            let elementoSalida = document.getElementById("parrafoSalida")
+
+            elementoSalida.textContent = mensajeSalida
+
+        }
+
+        function sumarTotal(array){
+            let total = 0
+
+            for (let venta of array){
+                total = total + venta
+            }
+
+            return total
+        }
+
+        function mayorVenta(array){
+            let mayor = array[0]
+
+            for (let venta of array){
+                if (venta > mayor){
+                    mayor = venta
+                }
+            }
+            return mayor
+        }
+
+        function menorVenta(array) {
+            let menor = array[0]
+
+            for (let venta of array){
+                if (venta < menor){
+                    menor = venta
+                }
+            }
+            return menor
+
+        }
+    </script>
+    
+</body>
+</html>

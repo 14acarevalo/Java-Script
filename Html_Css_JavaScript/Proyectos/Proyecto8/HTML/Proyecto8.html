@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+<body>
+    <div>
+        <h1>Tienda construcciones Campanero</h1>
+    </div>
+
+    <div>
+        <p>Codigo</p>
+        <input type="number" id="codigo">
+        <p>Nombre</p>
+        <input type="text" id="nombre">
+        <p>Categoria</p>
+        <input type="text" id="categoria">
+        <p>Precio</p>
+        <input type="number" id="precio">
+        <p>Stock</p>
+        <input type="checkbox" id="stock">
+        <button onclick="insertarProducto()">Insertar</button>
+        <button onclick="mostrarProducto()">Mostrar producto</button>
+
+    </div>
+
+
+    <script>
+
+        function elementos (codigo, nombre, categoria, precio, stock){
+            this.codigo = codigo
+            this.nombre = nombre
+            this.categoria=categoria
+            this.precio = precio
+            this.stock = stock
+        }
+
+        let elemento = []
+
+        function insertarProducto(){
+            elementoCodigo = document.getElementById("codigo").value
+            elementoNombre = document.getElementById("nombre").value
+            elementoCategoria = document.getElementById("categoria").value
+            elementoPrecio = document.getElementById("precio").value
+            elementoStock = document.getElementById("stock").value
+
+            let nuevoElemento = new elementos (elementoCodigo, elementoNombre, elementoCategoria, elementoPrecio, elementoStock)
+
+            elemento.push(nuevoElemento)
+
+            alert("Producto insertado adecuadamente")
+        }
+
+
+        function mostrarProducto() {
+            for (let x = 0; x < elemento.length; x++) { // Cambiar <= a < para evitar errores
+                let producto = elemento[x]; // Producto actual del array
+                let mensaje = ""; // Construir el mensaje
+                for (let propiedad in producto) {
+                    mensaje += `Propiedad ${propiedad}: ${producto[propiedad]}\n`; // Accede al valor de cada propiedad
+                }
+                alert(mensaje); // Muestra el producto
+            }
+        }
+        
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catologo películas</title>
+    <script src="../JS/Proyecto4.js" defer></script>
+    <link rel="stylesheet" href="../CSS/Proyecto4.css">
+</head>
+<body>
+    <div class="introduccion">
+        <h1>Bienvenido usuario</h1>
+        <p>En este catologo podrás obtener información sobre las peliculas según los datos que introduzcas</p>
+    </div>
+
+    <div class="encuesta">
+        <p>Introduce tu edad:</p>
+        <input type="number" id="edad" min="1" max="99"> 
+        <p>Introduce tu genero</p>
+        <ol>
+            <li id="comedia">Comedia</li>
+            <li id="crimen">Crimen</li>
+            <li id="drama">Drama</li>
+            <li id="musical">Musical</li>
+            <p>Por favor, introduce el nombre del genero tal y como aparece escrito en el menú</p>
+        </ol>
+        <input type="text" id="genero">
+        <button onclick="analizar()">Enviar</button>
+    </div>
+
+    <div class="resultado">
+        <p>La mejor pelicula para ti es: </p>
+        <h3 id="resultado"></h3>
+
+    </div>
+
+</body>
+</html>
